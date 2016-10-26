@@ -1,5 +1,3 @@
-console.log('WelcomeController is working')
-
 angular
   .module('health')
   .controller('WelcomeController', WelcomeController);

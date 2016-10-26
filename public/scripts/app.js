@@ -1,5 +1,3 @@
-console.log('app.js is working');
-
 angular
   .module('health', ['ngRoute'])
   .config(config);
@@ -12,6 +10,16 @@ function config ($routeProvider, $locationProvider) {
       templateUrl: 'templates/welcome',
       controllerAs: 'welcomeCtrl',
       controller: 'WelcomeController'
+    })
+    .when('/exams', {
+      templateUrl: 'templates/exam',
+      controllerAs: 'examCtrl',
+      controller: 'examController'
+    })
+    .when('/users', {
+      templateUrl: 'templates/user',
+      controllerAs: 'userCtrl',
+      controller: 'userController'
     })
     .otherwise({
       redirectTo: '/'
