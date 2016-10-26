@@ -4,11 +4,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Mental Health</title>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.js"></script>
   <link rel="stylesheet" href="../styles/styles.css">
+
+  <script src="/vendor/angular/angular.min.js"></script>
+  <script src="/vendor/angular-route/angular-route.min.js"></script>
+
   <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/WelcomeController.js"></script>
 </head>
 <body>
 {{2+2}}
+  <div ng-view></div>
 </body>
 </html>
