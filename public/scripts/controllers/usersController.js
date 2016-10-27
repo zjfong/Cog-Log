@@ -2,18 +2,30 @@ angular
   .module('health')
   .controller('usersController', usersController);
 
-usersController.$inject = ['$http', '$routeParams'];
-function usersController ($http, $routeParams) {
+usersController.$inject = ['$rootScope', '$http', '$routeParams', '$location'];
+function usersController ($rootScope, $http, $routeParams, $location) {
   var vm = this;
 
   vm.world = "world";
   vm.newUser = {};
+
+  vm.signup = function(user) {
+
+    if (user.password == user.password2) {
+      $http.post('/signup', user)
+        .success(function(user) {
+          $rootScope.currentUser = user;
+          $location.url("/profile");
+        });
+    }
+  }
 
   $http({
     method: 'GET',
     url: '/api/users'
   }).then(function onSuccess (response){
     vm.usersList = response.data;
+    console.log(response.data)
   }, function onError (error){
     console.log('GET error ', error);
   });

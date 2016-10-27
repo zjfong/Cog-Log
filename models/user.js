@@ -4,14 +4,23 @@ var bcrypt = require('bcrypt');
 var Exam = require('./exam');
 
 var UserSchema = new Schema({
-  name: String,
+  username: String,
   email: String,
-  passwordDigest: String,
+  password: String,
   exam:[{
     type: Schema.Types.ObjectId,
     ref: 'Exam'
   }],
 });
+
+UserSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+
+// checking if password is valid
+UserSchema.methods.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+};
 
 var User = mongoose.model('User', UserSchema);
 

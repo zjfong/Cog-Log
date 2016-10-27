@@ -2,8 +2,15 @@ angular
   .module('health')
   .controller('WelcomeController', WelcomeController);
 
-function WelcomeController () {
+WelcomeController.$inject = ['$location', '$http', '$rootScope'];
+function WelcomeController ($location, $http, $rootScope) {
   var vm = this;
 
-  vm.test = "test"
+  vm.logout = function() {
+    $http.post("/logout")
+      .success(function() {
+        $rootScope.currentUser = null;
+        $location.url("/home");
+      });
+  }
 }
