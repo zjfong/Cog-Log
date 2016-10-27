@@ -1,8 +1,12 @@
-var express = require('express'),
-  bodyParser = require('body-parser'),
-  mongoose = require('mongoose'),
-  session = require('express-session'),
-  ejs = require('ejs');
+var express = require('express');
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var passport = require('passport');
+var flash = require('connect-flash');
+var morgan = require('morgan');
+var cookieParser = require('cookie-parser');
+var session = require ('express-session');
 
 var app = express();
 var controllers = require('./controllers');
@@ -11,6 +15,7 @@ app.use(express.static(__dirname + '/public'));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json())
 // app.use(session({
 //   saveUninitialized: true,
 //   resave: true,
@@ -18,8 +23,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //   cookie: { maxAge: 30 * 60 * 1000 }
 // }));
 
-// parse application/json
-app.use(bodyParser.json())
+
 
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
