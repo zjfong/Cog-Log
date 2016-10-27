@@ -1,22 +1,29 @@
-var express = require('express'),
-  bodyParser = require('body-parser'),
-  mongoose = require('mongoose'),
-  session = require('express-session'),
-  ejs = require('ejs');
+var mongoose = require('mongoose');
 
+var express = require('express');
 var app = express();
+
+var passport = require('passport');
+require('./config/passport')(passport);
 var controllers = require('./controllers');
 
 app.use(express.static(__dirname + '/public'));
 app.use('/vendor', express.static(__dirname + '/bower_components'));
-app.set('view engine', 'ejs');
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+app.use(session({
+  secret: 'this is the secret'
+}));
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
+
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(session({
-//   saveUninitialized: true,
-//   resave: true,
-//   secret: 'SuperSecretCookie',
-//   cookie: { maxAge: 30 * 60 * 1000 }
-// }));
+
+require('./routes/auth.js')(app, passport);
 
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
