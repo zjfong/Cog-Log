@@ -6,7 +6,7 @@ var Exam = require('./exam');
 var UserSchema = new Schema({
   name: String,
   email: String,
-  passwordDigest: String
+  passwordDigest: String,
   exam:[{
     type: Schema.Types.ObjectId,
     ref: 'Exam'

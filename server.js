@@ -18,6 +18,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 //   cookie: { maxAge: 30 * 60 * 1000 }
 // }));
 
+// parse application/json
+app.use(bodyParser.json())
+
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
@@ -27,6 +30,11 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
+app.get('/api/users', controllers.users.index);
+app.get('/api/users/:userId', controllers.users.show);
+app.post('/api/users', controllers.users.create);
+app.delete('/api/users/:userId', controllers.users.destroy);
+app.put('/api/users/:userId', controllers.users.update);
 
 
 app.get('*', function homepage (req, res) {

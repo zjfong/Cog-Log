@@ -11,15 +11,20 @@ function config ($routeProvider, $locationProvider) {
       controllerAs: 'welcomeCtrl',
       controller: 'WelcomeController'
     })
+    .when('/signup', {
+      templateUrl: 'templates/signup',
+      controllerAs: 'usersCtrl',
+      controller: 'usersController'
+    })
     .when('/exams', {
       templateUrl: 'templates/exam',
-      controllerAs: 'examCtrl',
-      controller: 'examController'
+      controllerAs: 'examsCtrl',
+      controller: 'examsController'
     })
     .when('/users', {
       templateUrl: 'templates/user',
-      controllerAs: 'userCtrl',
-      controller: 'userController'
+      controllerAs: 'usersCtrl',
+      controller: 'usersController'
     })
     .otherwise({
       redirectTo: '/'
