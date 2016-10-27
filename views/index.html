@@ -8,14 +8,27 @@
 
   <script src="/vendor/angular/angular.min.js"></script>
   <script src="/vendor/angular-route/angular-route.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/WelcomeController.js"></script>
-  <script src="scripts/controllers/examController.js"></script>
-  <script src="scripts/controllers/userController.js"></script>
+  <script src="scripts/controllers/examsController.js"></script>
+  <script src="scripts/controllers/usersController.js"></script>
 </head>
 <body>
-{{2+2}}
+  <nav>
+    <div class="nav-wrapper">
+      <a href="http://localhost:3000/" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/login">Log In</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
   <div ng-view></div>
 </body>
 </html>
