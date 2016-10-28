@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
-
+var db = require("./models");
 var express = require('express');
 var app = express();
 
+
 var passport = require('passport');
-require('./config/passport')(passport);
+var LocalStrategy = require('passport-local').Strategy;
 var controllers = require('./controllers');
 
 app.use(express.static(__dirname + '/public'));
@@ -13,7 +14,10 @@ app.use('/vendor', express.static(__dirname + '/bower_components'));
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 app.use(session({
-  secret: 'this is the secret'
+  saveUninitialized: true,
+  resave: true,
+  secret: 'SuperSecretCookie',
+  cookie: { maxAge: 30 * 60 * 1000 } // 30 minute cookie lifespan (in milliseconds)
 }));
 app.use(cookieParser());
 app.use(passport.initialize());
@@ -23,7 +27,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-require('./routes/auth.js')(app, passport);
+
 
 app.get('/', function homepage (req, res) {
   res.sendFile(__dirname + '/views/index.html');
@@ -34,6 +38,35 @@ app.get('/templates/:name', function templates(req, res) {
   res.sendFile(__dirname + '/views/templates/' + name + '.html');
 });
 
+passport.use(new LocalStrategy(
+  function(username, password, done){
+    db.User.findOne({username: username, password: password}, function(err, user){
+      if(user){
+        return done(null, user);
+      }
+      return done(null, false, {message: 'Unable to login'});
+    })
+  }
+));
+
+passport.serializeUser(function(user, done){
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done){
+  done(null, user);
+});
+
+app.post('/login', passport.authenticate('local'), function(req, res){
+  console.log('/login')
+  console.log(req.user);
+  res.json(req.user);
+})
+
+app.post('/signup', function(req, res){
+  var newUser = req.body;
+  console.log(newUser);
+})
 
 
 app.get('*', function homepage (req, res) {

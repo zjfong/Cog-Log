@@ -2,9 +2,9 @@ console.log('WelcomeController is working')
 
 angular
   .module('health')
-  .controller('WelcomeController', WelcomeController);
+  .controller('welcomeController', welcomeController);
 
-function WelcomeController () {
+function welcomeController () {
   var vm = this;
 
   vm.test = "test"

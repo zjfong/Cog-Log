@@ -10,10 +10,18 @@
   <script src="/vendor/angular-route/angular-route.min.js"></script>
 
   <script src="scripts/app.js"></script>
-  <script src="scripts/controllers/WelcomeController.js"></script>
+  <script src="scripts/controllers/welcomeController.js"></script>
+  <script src="scripts/controllers/loginController.js"></script>
+  <script src="scripts/controllers/signupController.js"></script>
 </head>
 <body>
-{{2+2}}
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/login">Login</a> |
+    <a href="/logout">Logout</a> |
+    <a href="/signup">Sign Up</a> |
+    <a href="/profile">Profile</a>
+  </nav>
   <div ng-view></div>
 </body>
 </html>
