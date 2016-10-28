@@ -41,20 +41,46 @@ function config ($routeProvider, $locationProvider) {
     });
 }
 
-checkLoggedin.$inject = ['$q', '$timeout', '$http', '$location', '$rootScope']
+checkLoggedin.$inject = ['$q', '$timeout', '$http', '$location', '$rootScope'];
 function checkLoggedin ($q, $timeout, $http, $location, $rootScope) {
+  console.log("ThisCheckedLoggedin")
+
+
   var deferred = $q.defer();
-  $http.get('loggedin').success(function(user){
-    $rootScope.errorMessage = null;
-    if(user!=='0'){
-      $rootScope.currentUser = user;
-      deferred.resolve();
-    } else {
-      $rootScope.errorMessage = 'You need to log in.';
-      deferred.reject();
-      $location.url('/login');
-    }
-  })
+  $http({
+      method: 'GET',
+      url: '/loggedin'
+    }).then(function onSuccess(response){
+      console.log(response.data)
+      $rootScope.errorMessage = null;
+      if(user!=='0'){
+        $rootScope.currentUser = user;
+        console.log(user)
+        deferred.resolve();
+      } else {
+        $rootScope.errorMessage = 'You need to log in.';
+        deferred.reject();
+        $location.url('/login');
+      }
+    })
+
+
+
+  // $http.get('/loggedin').success(function(user){
+  //   console.log(user)
+  //   $rootScope.errorMessage = null;
+  //   if(user!=='0'){
+  //     $rootScope.currentUser = user;
+  //     console.log(user)
+  //     deferred.resolve();
+  //   } else {
+  //     $rootScope.errorMessage = 'You need to log in.';
+  //     deferred.reject();
+  //     $location.url('/login');
+  //   }
+  // })
+
+
 }
 
 
