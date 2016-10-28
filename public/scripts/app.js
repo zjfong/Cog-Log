@@ -2,7 +2,9 @@ console.log('app.js is working');
 
 angular
   .module('health', ['ngRoute'])
-  .config(config);
+  .config(config)
+  .checkLoggedin(checkLoggedin);
+
 
 config.$inject = ['$routeProvider', '$locationProvider'];
 
@@ -25,6 +27,9 @@ function config ($routeProvider, $locationProvider) {
     })
     .when('/profile', {
       templateUrl: 'templates/profile',
+      resolve: {
+        logincheck: checkLoggedin
+      }
     })
     .otherwise({
       redirectTo: '/'
@@ -33,5 +38,23 @@ function config ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode({
       enabled: true,
       requireBase: false
-  });
+    });
 }
+
+checkLoggedin.$inject = ['$q', '$timeout', '$http', '$location', '$rootScope']
+function checkLoggedin ($q, $timeout, $http, $location, $rootScope) {
+  var deferred = $q.defer();
+  $http.get('loggedin').success(function(user){
+    $rootScope.errorMessage = null;
+    if(user!=='0'){
+      $rootScope.currentUser = user;
+      deferred.resolve();
+    } else {
+      $rootScope.errorMessage = 'You need to log in.';
+      deferred.reject();
+      $location.url('/login');
+    }
+  })
+}
+
+

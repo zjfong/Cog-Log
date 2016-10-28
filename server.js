@@ -64,8 +64,23 @@ app.post('/login', passport.authenticate('local'), function(req, res){
 })
 
 app.post('/signup', function(req, res){
-  var newUser = req.body;
-  console.log(newUser);
+  db.User.findOne({username: req.body.username}, function(err, user){
+    if(user){
+      res.json(null);
+      return;
+    } else {
+      var newUser = new db.User(req.body);
+      newUser.roles = ['limited']
+      newUser.save(function(err, user){
+        req.login(user, function(err){
+          if(err){
+            return next(err);
+          }
+          res.json(user)
+        });
+      })
+    }
+  })
 })
 
 

@@ -2,8 +2,8 @@ angular
   .module('health')
   .controller('loginController', loginController);
 
-loginController.$inject = ['$http'];
-function loginController ($http) {
+loginController.$inject = ['$http', '$rootScope'];
+function loginController ($http, $rootScope) {
   var vm = this;
 
   vm.login = function(user){
@@ -14,8 +14,9 @@ function loginController ($http) {
       data: user
     }).then(function onSuccess(response){
       console.log(response.data)
+      $rootScope.currentUser = user;
     }, function onError(error){
-      console.log('POST error ', error);
+      console.log('login error ', error);
     });
   }
 
