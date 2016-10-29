@@ -31,6 +31,11 @@ function config ($routeProvider, $locationProvider) {
       controller: 'profileController',
       controllerAs: 'profileCtrl'
     })
+    .when('/exam', {
+      templateUrl: '/exam/exam.view.html',
+      controller: 'examController',
+      controllerAs: 'examCtrl'
+    })
     .otherwise({redirectTo: '/'});
 
   // use the HTML5 History API
