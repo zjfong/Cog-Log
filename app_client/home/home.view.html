@@ -1,6 +1,7 @@
 <navigation></navigation>
 
 <div class="jumbotron container">
-  <h1>testing</h1>
-    <p>Won't you please <a href="login">sign in</a> or <a href="register">register</a>?</p>
+  <h1>Welcome</h1>
+    <p ng-hide="navigationCtrl.isLoggedIn">Won't you please <a href="login">log in</a> or <a href="register">register</a>?</p>
+    <p ng-show="navigationCtrl.isLoggedIn">Have a look around!</p>
 </div>
