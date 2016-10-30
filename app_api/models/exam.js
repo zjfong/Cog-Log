@@ -51,3 +51,7 @@ var examSchema = new mongoose.Schema({
     required: true
   }
 });
+
+var Exam = mongoose.model('Exam', examSchema);
+
+module.exports = Exam;

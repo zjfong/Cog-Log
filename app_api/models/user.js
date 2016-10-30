@@ -1,6 +1,7 @@
 var crypto = require('crypto'),
   jwt = require('jsonwebtoken'),
-  mongoose = require( 'mongoose' );
+  mongoose = require( 'mongoose' ),
+  exam = require('./exam');
 
 var userSchema = new mongoose.Schema({
   email: {
@@ -13,7 +14,11 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   hash: String,
-  salt: String
+  salt: String,
+  exams:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Exam'
+  }],
 });
 
 userSchema.methods.setPassword = function(password){
