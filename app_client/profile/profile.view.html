@@ -7,15 +7,20 @@
 
       <form class="form-horizontal" id="profile-form">
         <div class="form-group">
-          <label class="col-sm-3 control-label">Full name</label>
+          <label class="col-sm-3 control-label">Name:</label>
           <p class="form-control-static">{{ profileCtrl.user.name }}</p>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Email</label>
+          <label class="col-sm-3 control-label">Email:</label>
           <p class="form-control-static">{{ profileCtrl.user.email }}</p>
         </div>
       </form>
     </div>
   </div>
-  <a href="exam">New Exam</a>
+  <div class="row">
+    <a class="btn btn-primary" href="exam" role="button">New Exam</a>
+    <a class="btn btn-warning" href="scoring" role="button">Scoring</a>
+    <a class="btn btn-info" href="stats" role="button">Stats</a>
+  </div>
+
 </div>
