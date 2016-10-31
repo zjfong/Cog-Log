@@ -14,6 +14,7 @@ function examController($location, $http, authentication) {
     url: '/api/exams'
   }).then(function onSuccess (response){
     vm.examsList = response.data;
+    // vm.cleanDate();
     console.log('exam list ', vm.examsList)
   }, function onError (error){
     console.log('GET error ', error);
@@ -35,6 +36,16 @@ function examController($location, $http, authentication) {
       console.log('POST error ', error);
     });
   };
+
+
+  // vm.cleanDate = function(){
+  //   vm.examsList.map(function examDate(exam){
+  //     var myDate = exam.date;
+  //     var newDate = dateFormat(myDate, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+  //     // var newDate = (myDate.getMonth() + 1) + "/" + myDate.getDate() + "/" + myDate.getFullYear();
+  //     exam.date = newDate;
+  //   })
+  // }
 
 
 
