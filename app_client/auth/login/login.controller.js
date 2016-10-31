@@ -15,7 +15,7 @@ function loginController($location, authentication) {
     authentication
     .login(vm.credentials)
     .error(function(err){
-      alert(err);
+      alert('Incorrect email address or password');
     })
     .then(function(){
       $location.path('profile');
