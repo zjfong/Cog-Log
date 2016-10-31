@@ -47,9 +47,12 @@ var examSchema = new mongoose.Schema({
     required: true
   },
   totalScore: {
-    type: Number,
-    required: true
-  }
+    type: Number
+  },
+  user:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  }],
 });
 
 var Exam = mongoose.model('Exam', examSchema);

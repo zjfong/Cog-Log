@@ -14,11 +14,7 @@ var userSchema = new mongoose.Schema({
     required: true
   },
   hash: String,
-  salt: String,
-  exams:[{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Exam'
-  }],
+  salt: String
 });
 
 userSchema.methods.setPassword = function(password){
