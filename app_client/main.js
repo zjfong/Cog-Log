@@ -1,5 +1,5 @@
 angular
-    .module('health', ['ngRoute', 'ngAnimate', 'ngSanitize','ui.bootstrap'])
+    .module('health', ['ngRoute', 'ngAnimate', 'ngSanitize','ui.bootstrap', 'ngMaterial'])
     .config(config)
     .run(run);
 
@@ -45,13 +45,20 @@ function config ($routeProvider, $locationProvider) {
 
   // use the HTML5 History API
   $locationProvider.html5Mode(true);
+
 }
 
 run.$inject = ['$rootScope', '$location', 'authentication'];
 function run($rootScope, $location, authentication) {
   $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
     if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
-      $location.path('/');
+      $location.path('/login');
+    }
+    if ($location.path() === '/stats' && !authentication.isLoggedIn()) {
+      $location.path('/login');
+    }
+    if ($location.path() === '/exam' && !authentication.isLoggedIn()) {
+      $location.path('/login');
     }
   });
 }
