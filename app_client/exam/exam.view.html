@@ -11,6 +11,9 @@
           <label>"What is the year? Season? Date? Day of the week? Month?"</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score1" id="1score0" value="0" ng-model="examCtrl.newExam.score1"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score1" id="1score1" value="1" ng-model="examCtrl.newExam.score1"> 1
             </label>
             <label class="form-check-inline">
@@ -28,6 +31,9 @@
           </div>
           <label>"Where are we now: State? Country? Town/city? Hospital? Floor?"</label>
           <div class="form-group">
+            <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score2" id="2score0" value="0" ng-model="examCtrl.newExam.score2"> 0
+            </label>
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score2" id="2score1" value="1" ng-model="examCtrl.newExam.score2"> 1
             </label>
@@ -47,6 +53,9 @@
           <label>The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring The examiner repeats them until patient learns all of them, if possible. Number of trials:______</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score3" id="3score0" value="0" ng-model="examCtrl.newExam.score3"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score3" id="3score1" value="1" ng-model="examCtrl.newExam.score3"> 1
             </label>
             <label class="form-check-inline">
@@ -59,6 +68,9 @@
           <label>"I would like you to count backward from 100 by sevens." (93, 86, 79, 72, 65, ...) Stop after five answers.<br>
           Alternative: "Spell WORLD backwards." (D-L-R-O-W)</label>
           <div class="form-group">
+            <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score4" id="4score0" value="0" ng-model="examCtrl.newExam.score4"> 0
+            </label>
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score4" id="4score1" value="1" ng-model="examCtrl.newExam.score4"> 1
             </label>
@@ -78,6 +90,9 @@
           <label>"Earlier I told you the names of three things. Can you tell me what those were?"</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score5" id="5score0" value="0" ng-model="examCtrl.newExam.score5"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score5" id="5score1" value="1" ng-model="examCtrl.newExam.score5"> 1
             </label>
             <label class="form-check-inline">
@@ -90,6 +105,9 @@
           <label>Show the patient two simple objects, such as a wristwatch and a pencil, and ask the patient to name them.</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score6" id="6score0" value="0" ng-model="examCtrl.newExam.score6"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score6" id="6score1" value="1" ng-model="examCtrl.newExam.score6"> 1
             </label>
             <label class="form-check-inline">
@@ -99,11 +117,17 @@
           <label>"Repeat the phrase: 'No ifs, ands, or buts."</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score7" id="7score0" value="0" ng-model="examCtrl.newExam.score7"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score7" id="7score1" value="1" ng-model="examCtrl.newExam.score7"> 1
             </label>
           </div>
           <label>"Take the paper in your right hand, fold it in half, and put it on the floor." (The examiner gives the patient a piece of blank paper.)</label>
           <div class="form-group">
+            <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score8" id="8score0" value="0" ng-model="examCtrl.newExam.score8"> 0
+            </label>
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score8" id="8score1" value="1" ng-model="examCtrl.newExam.score8"> 1
             </label>
@@ -117,17 +141,26 @@
           <label>"Please read this and do what it says." (Written instruction is "Close your eyes.")</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score9" id="9score0" value="0" ng-model="examCtrl.newExam.score9"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score9" id="9score1" value="1" ng-model="examCtrl.newExam.score9"> 1
             </label>
           </div>
           <label>"Make up and write a sentence about anything." (This sentence must contain a noun and a verb.)</label>
           <div class="form-group">
             <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score10" id="10score0" value="0" ng-model="examCtrl.newExam.score10"> 0
+            </label>
+            <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score10" id="10score1" value="1" ng-model="examCtrl.newExam.score10"> 1
             </label>
           </div>
           <label>"Please copy this picture." (The examiner gives the patient a blank piece of paper and asks him/her to draw the symbol below. All 10 angles must be present and two must intersect.)</label>
           <div class="form-group">
+            <label class="form-check-inline">
+              <input class="form-check-input" type="radio" name="score11" id="11score0" value="0" ng-model="examCtrl.newExam.score11"> 0
+            </label>
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score11" id="11score1" value="1" ng-model="examCtrl.newExam.score11"> 1
             </label>

@@ -47,8 +47,10 @@ var examSchema = new mongoose.Schema({
     required: true
   },
   totalScore: {
-    type: Number
+    type: Number,
+    required: true
   },
+  date: String,
   user:[{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

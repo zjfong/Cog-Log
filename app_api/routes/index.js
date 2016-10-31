@@ -17,8 +17,8 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-
+router.get('/exams', ctrlExam.findExams)
 router.post('/exams', ctrlExam.newExam);
-console.log(ctrlExam.newExam);
+
 
 module.exports = router;
