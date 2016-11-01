@@ -2,23 +2,28 @@
 
 <div class="container">
 
+  <h1>Stats</h1>
+  <p class="lead">Stats for {{examCtrl.currentUser.name}}.</p>
+
+  <div id="chartContainer">
+    <canvas class="chart chart-line" height="20" width="80" chart-data="examCtrl.data" chart-labels="examCtrl.labels"
+    chart-series="examCtrl.series" chart-options="examCtrl.lineOptions"></canvas>
+  </div>
+  <hr>
+
   <div class="row">
     <div class="col-md-6">
-      <h1>Stats</h1>
-      <p class="lead">Stats for {{examCtrl.currentUser.name}}.</p>
+
 
       <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
-        <p>Date: {{exam.date | date : 'longdate' : 'PDT'}}</p>
-        <p>Total Score: {{exam.totalScore}}</p>
+        <p>Date: {{exam.date | date : 'longdate' : 'PDT'}} Total Score: {{exam.totalScore}}</p>
+
       </div>
       <a class="btn btn-primary" href="exam" role="button">New Exam</a>
     </div>
   </div>
 
 
-  <div id="chartContainer" class="row">
-    <canvas class="chart chart-line" chart-data="examCtrl.data" chart-labels="examCtrl.labels"
-    chart-series="examCtrl.series" chart-options="examCtrl.lineOptions"></canvas>
-  </div>
+
 
 </div>
