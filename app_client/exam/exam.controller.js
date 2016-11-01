@@ -2,15 +2,15 @@ angular
   .module('health')
   .controller('examController', examController);
 
-examController.$inject = ['$location', '$http', 'authentication', '$moment'];
-function examController($location, $http, authentication, $moment) {
+examController.$inject = ['$location', '$http', 'authentication'];
+function examController($location, $http, authentication) {
   var vm = this;
   vm.data=[];
   vm.newExam = {};
   vm.currentUser = authentication.currentUser();
   console.log(vm.currentUser);
 
-  vm.date = $moment().format('MM/DD/YYYY')
+  vm.date = new Date ();
   console.log(vm.date)
   // $filter('vm.date')(vm.date, 'longdate', 'PDT')
 

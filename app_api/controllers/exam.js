@@ -6,7 +6,8 @@ module.exports.newExam = function(req, res) {
   console.log(req.body);
 
   var exam = new Exam();
-  exam.date = new Date();
+  exam.date = new Date().toDateString();
+
 
   exam.score1 = req.body.score1;
   exam.score2 = req.body.score2;
