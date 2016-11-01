@@ -16,7 +16,7 @@
 
 
       <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
-        <p>Date: {{exam.date | date : 'longdate' : 'PDT'}} Total Score: {{exam.totalScore}}</p>
+        <p>Date: {{exam.date | today : 'longdate'}} Total Score: {{exam.totalScore}}</p>
 
       </div>
       <a class="btn btn-primary" href="exam" role="button">New Exam</a>

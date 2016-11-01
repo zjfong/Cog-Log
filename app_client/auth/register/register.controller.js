@@ -19,6 +19,9 @@ function registerController($location, authentication) {
         alert(err);
       })
       .then(function(){
+        if (!authentication.isLoggedIn()) {
+          $location.path('login');
+        }
         $location.path('profile');
       });
   };
