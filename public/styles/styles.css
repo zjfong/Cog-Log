@@ -11,3 +11,9 @@
   max-height: 500px;
 }
 */
+
+.dropdown-menu {
+  width: 300px !important;
+  height: 420px !important;
+  padding: 10px;
+}
