@@ -1,0 +1,17 @@
+<navigation></navigation>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Stats</h1>
+      <p class="lead">Stats for {{examCtrl.currentUser.name}}.</p>
+
+      <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
+        <p>Date: {{exam.date}}</p>
+        <p>Total Score: {{exam.totalScore}}</p>
+      </div>
+      <a href="exam">New Exam</a>
+    </div>
+  </div>
+</div>
