@@ -5,27 +5,27 @@ angular
 examController.$inject = ['$location', '$http', 'authentication'];
 function examController($location, $http, authentication) {
   var vm = this;
+  vm.data=[];
   vm.newExam = {};
   vm.currentUser = authentication.currentUser();
   console.log(vm.currentUser);
 
-  // vm.status = {
-  //   isopen: false
-  // };
-
-  // vm.toggled = function(open) {
-  //   $log.log('Dropdown is now: ', open);
-  // };
+  vm.date = new Date()
+  console.log(vm.date)
+  // $filter('vm.date')(vm.date, 'longdate', 'PDT')
 
   $http({
     method: 'GET',
     url: '/api/exams'
   }).then(function onSuccess (response){
     vm.examsList = response.data;
-    vm.data = vm.examsList.map(function totalScore(exam){
+    vm.list = vm.examsList.map(function totalScore(exam){
     return exam.totalScore;
   })
-    console.log(vm.data);
+    vm.data.push(vm.list);
+    vm.labels = vm.examsList.map(function totalScore(exam){
+    return exam.date;
+  })
     console.log('exam list ', vm.examsList)
   }, function onError (error){
     console.log('GET error ', error);
@@ -48,14 +48,7 @@ function examController($location, $http, authentication) {
     });
   };
 
-
-
-  vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
-  vm.series = ['Series A', 'Series B'];
-  // vm.data = [
-  //   // [65, 59, 80, 81, 56, 55, 40],
-  //   [28, 48, 40, 19, 86, 27, 90]
-  // ];
+  vm.series = ['Score'];
   vm.lineOptions = {
     elements: {
       line: {
@@ -67,7 +60,7 @@ function examController($location, $http, authentication) {
   // vm.onClick = function (points, evt) {
   //   console.log(points, evt);
   // };
-  vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+  // vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
   vm.options = {
     scales: {
       yAxes: [
@@ -76,12 +69,6 @@ function examController($location, $http, authentication) {
           type: 'linear',
           display: true,
           position: 'left'
-        },
-        {
-          id: 'y-axis-2',
-          type: 'linear',
-          display: true,
-          position: 'right'
         }
       ]
     }

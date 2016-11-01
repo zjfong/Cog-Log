@@ -8,18 +8,17 @@
       <p class="lead">Stats for {{examCtrl.currentUser.name}}.</p>
 
       <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
-        <p>Date: {{exam.date}}</p>
+        <p>Date: {{exam.date | date : 'longdate' : 'PDT'}}</p>
         <p>Total Score: {{exam.totalScore}}</p>
       </div>
-      <a href="exam">New Exam</a>
+      <a class="btn btn-primary" href="exam" role="button">New Exam</a>
     </div>
   </div>
 
-  <!-- <canvas id="line" class="chart chart-line" chart-data="data"
-chart-labels="labels" chart-series="series" chart-options="options"
-chart-dataset-override="datasetOverride" chart-click="onClick">
-</canvas> -->
 
-<canvas class="chart chart-line" chart-data="examCtrl.data" chart-labels="examCtrl.labels"
+  <div id="chartContainer" class="row">
+    <canvas class="chart chart-line" chart-data="examCtrl.data" chart-labels="examCtrl.labels"
     chart-series="examCtrl.series" chart-options="examCtrl.lineOptions"></canvas>
+  </div>
+
 </div>

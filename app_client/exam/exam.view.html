@@ -4,7 +4,8 @@
   <div class="row">
     <div class="col-md-9 col-centered">
       <h1 class="form-signin-heading">Mini-Mental State Examination</h1>
-      <p class="lead">Instructions: Ask the questions in the order listed. Score one point for each correct response within each question or activity
+      <p class="lead">Instructions: Ask the questions in the order listed. Score one point for each correct response within each question or activity.
+      Click on the question mark for administration and scoring of the MMSE.
       </p>
         <form ng-submit="examCtrl.onSubmit()">
           <label>1. "What is the year? Season? Date? Day of the week? Month?"
@@ -43,7 +44,7 @@
             <md-radio-button value="5"> 5 </md-radio-button>
           </md-radio-group>
           <hr>
-          <label>3. The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring The examiner repeats them until patient learns all of them, if possible. Number of trials:______
+          <label>3. The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring. The examiner repeats them until patient learns all of them, if possible.
             <span uib-dropdown on-toggle="toggled(open)">
               <md-icon class="icon" uib-dropdown-toggle md-svg-src="../images/question.svg"></md-icon>
               <div id="dropdown3" class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">

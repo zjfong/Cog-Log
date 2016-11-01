@@ -31,8 +31,16 @@ footer {
 }
 
 #dropdown3 {
-  width: 350px !important;
+  width: 330px !important;
   /*height: 390px !important;*/
+}
+
+#dropdown6 {
+  width: 300px !important;
+}
+
+#chartContainer {
+  margin-top: 30px;
 }
 
 /*.icon:hover {
