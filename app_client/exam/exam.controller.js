@@ -14,19 +14,41 @@ function examController($location, $http, authentication) {
   console.log(vm.date)
   // $filter('vm.date')(vm.date, 'longdate', 'PDT')
 
+
+
   $http({
     method: 'GET',
     url: '/api/exams'
   }).then(function onSuccess (response){
     vm.examsList = response.data;
-    vm.list = vm.examsList.map(function totalScore(exam){
-    return exam.totalScore;
-  })
-    vm.data.push(vm.list);
-    vm.labels = vm.examsList.map(function totalScore(exam){
-    return exam.date;
-  })
     console.log('exam list ', vm.examsList)
+
+    vm.scoreList = vm.examsList.map(function totalScore(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return exam.totalScore;
+      }
+    })
+
+    vm.scoreLists = vm.scoreList.filter(function totalScores(score){
+      if(!undefined){
+        return score;
+      }
+    })
+    console.log(vm.scoreLists)
+    vm.data.push(vm.scoreLists);
+
+    vm.label = vm.examsList.filter(function label(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return exam
+      }
+    })
+    vm.labels = vm.label.map(function labels(exam){
+      if(true){
+        return exam.date;
+      }
+    })
+    console.log(vm.labels)
+
   }, function onError (error){
     console.log('GET error ', error);
   });
@@ -57,10 +79,6 @@ function examController($location, $http, authentication) {
     }
   };
 
-  // vm.onClick = function (points, evt) {
-  //   console.log(points, evt);
-  // };
-  // vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
   vm.options = {
     scales: {
       yAxes: [
