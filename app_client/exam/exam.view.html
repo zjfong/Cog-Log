@@ -46,13 +46,13 @@
           </md-radio-group>
           <hr>
           <label>3. The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring The examiner repeats them until patient learns all of them, if possible. Number of trials:______
-            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
-              <md-tooltip md-direction="right">
-                Hello
-              </md-tooltip>
-              <md-icon md-svg-src="../images/question.svg"></md-icon>
-              </md-icon>
-            </md-button>
+            <span uib-dropdown on-toggle="toggled(open)">
+      <a class="btn btn-info" href id="simple-dropdown" role="button"  uib-dropdown-toggle>Stats</a>
+
+       <div class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+        adsfkljasdfjasdlfkjasdlfkjasdlfkjsadlfkjasdlfjasdlfkjsdalkf sakdfjaldfjlakfjlsad fsa flksjdf las jflsak dfasd fjlask flsak flaskd flaskdj fsalkd fsak fslakd fs
+      </div>
+    </span>
           </label>
           <md-radio-group layout="row" ng-model="examCtrl.newExam.score3">
             <md-radio-button value="0" class="md-primary">0</md-radio-button>

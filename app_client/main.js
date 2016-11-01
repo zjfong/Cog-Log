@@ -1,5 +1,5 @@
 angular
-    .module('health', ['ngRoute', 'ngAnimate', 'ngSanitize','ui.bootstrap', 'ngMaterial'])
+    .module('health', ['ngRoute', 'ngAnimate', 'ngSanitize','ui.bootstrap', 'ngMaterial', 'ui.bootstrap'])
     .config(config)
     .run(run);
 
