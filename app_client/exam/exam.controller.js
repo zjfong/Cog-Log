@@ -22,7 +22,10 @@ function examController($location, $http, authentication) {
     url: '/api/exams'
   }).then(function onSuccess (response){
     vm.examsList = response.data;
-    // vm.cleanDate();
+    vm.data = vm.examsList.map(function totalScore(exam){
+    return exam.totalScore;
+  })
+    console.log(vm.data);
     console.log('exam list ', vm.examsList)
   }, function onError (error){
     console.log('GET error ', error);
@@ -45,19 +48,25 @@ function examController($location, $http, authentication) {
     });
   };
 
-  // var totalList = vm.examsList.map(function totalScore(exam){
-  //   return exam.totalScore;
-  // })
+
 
   vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
   vm.series = ['Series A', 'Series B'];
-  vm.data = [
-    // [65, 59, 80, 81, 56, 55, 40],
-    [28, 48, 40, 19, 86, 27, 90]
-  ];
-  vm.onClick = function (points, evt) {
-    console.log(points, evt);
+  // vm.data = [
+  //   // [65, 59, 80, 81, 56, 55, 40],
+  //   [28, 48, 40, 19, 86, 27, 90]
+  // ];
+  vm.lineOptions = {
+    elements: {
+      line: {
+        tension: 0
+      }
+    }
   };
+
+  // vm.onClick = function (points, evt) {
+  //   console.log(points, evt);
+  // };
   vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
   vm.options = {
     scales: {
