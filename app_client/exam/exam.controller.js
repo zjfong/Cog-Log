@@ -2,20 +2,20 @@ angular
   .module('health')
   .controller('examController', examController);
 
-examController.$inject = ['$location', '$http', 'authentication', '$log'];
-function examController($location, $http, authentication, $log) {
+examController.$inject = ['$location', '$http', 'authentication'];
+function examController($location, $http, authentication) {
   var vm = this;
   vm.newExam = {};
   vm.currentUser = authentication.currentUser();
   console.log(vm.currentUser);
 
-  vm.status = {
-    isopen: false
-  };
+  // vm.status = {
+  //   isopen: false
+  // };
 
-  vm.toggled = function(open) {
-    $log.log('Dropdown is now: ', open);
-  };
+  // vm.toggled = function(open) {
+  //   $log.log('Dropdown is now: ', open);
+  // };
 
   $http({
     method: 'GET',

@@ -12,8 +12,31 @@
 }
 */
 
-.dropdown-menu {
-  width: 300px !important;
-  height: 420px !important;
-  padding: 10px;
+footer {
+  height: 50px;
 }
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+/*.container {
+  float: center;
+}*/
+
+.dropdown-menu {
+  padding: 10px;
+  width: 350px;
+}
+
+#dropdown3 {
+  width: 350px !important;
+  /*height: 390px !important;*/
+}
+
+/*.icon:hover {
+  transform: translateX(4px);
+  background-color: blue;
+}
+*/
