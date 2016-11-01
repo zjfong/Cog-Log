@@ -11,3 +11,40 @@
   max-height: 500px;
 }
 */
+
+footer {
+  height: 50px;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+/*.container {
+  float: center;
+}*/
+
+.dropdown-menu {
+  padding: 10px;
+  width: 350px;
+}
+
+#dropdown3 {
+  width: 330px !important;
+  /*height: 390px !important;*/
+}
+
+#dropdown6 {
+  width: 300px !important;
+}
+
+#chartContainer {
+  margin-top: 30px;
+}
+
+/*.icon:hover {
+  transform: translateX(4px);
+  background-color: blue;
+}
+*/
