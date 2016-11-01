@@ -2,19 +2,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-9">
       <h1 class="form-signin-heading">Mini-Mental State Examination</h1>
       <p class="lead">Instructions: Ask the questions in the order listed. Score one point for each correct response within each question or activity
       </p>
         <form ng-submit="examCtrl.onSubmit()">
-          <label>"What is the year? Season? Date? Day of the week? Month?"</label>
-          <md-button id="tooltip" class="md-icon-button" aria-label="tip">
-            <md-tooltip md-direction="right">
-              Hello
-            </md-tooltip>
-            <md-icon md-svg-src="../images/question.svg"></md-icon>
-            </md-icon>
-          </md-button>
+          <label>1. "What is the year? Season? Date? Day of the week? Month?"
+          <!-- <md-content> -->
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right" class="question-tooltip">
+                Ask for the date. Then specifically ask for parts omitted(e.g., "Can you also tell me what season it is?"). One point for each correct answer.
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          <!-- </md-content> -->
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score1" id="1score0" value="0" ng-model="examCtrl.newExam.score1"> 0
@@ -34,9 +37,16 @@
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score1" id="1score5" value="5" ng-model="examCtrl.newExam.score1"> 5
             </label>
-
           </div>
-          <label>"Where are we now: State? Country? Town/city? Hospital? Floor?"</label>
+          <label>2. "Where are we now: State? Country? Town/city? Hospital? Floor?"
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Ask in turn, "Can you tell me the name of this hospital (town, county, etc.)?" One point for each correct answer.
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score2" id="2score0" value="0" ng-model="examCtrl.newExam.score2"> 0
@@ -57,7 +67,15 @@
               <input class="form-check-input" type="radio" name="score2" id="2score5" value="5" ng-model="examCtrl.newExam.score2"> 5
             </label>
           </div>
-          <label>The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring The examiner repeats them until patient learns all of them, if possible. Number of trials:______</label>
+          <label>3. The examiner names three unrelated objects clearly and slowly, then asks the patient to name all three of them. The patient's reponse is used for scoring The examiner repeats them until patient learns all of them, if possible. Number of trials:______
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score3" id="3score0" value="0" ng-model="examCtrl.newExam.score3"> 0
@@ -72,8 +90,16 @@
               <input class="form-check-input" type="radio" name="score3" id="3score3" value="3" ng-model="examCtrl.newExam.score3"> 3
             </label>
           </div>
-          <label>"I would like you to count backward from 100 by sevens." (93, 86, 79, 72, 65, ...) Stop after five answers.<br>
-          Alternative: "Spell WORLD backwards." (D-L-R-O-W)</label>
+          <label>4. "I would like you to count backward from 100 by sevens." (93, 86, 79, 72, 65, ...) Stop after five answers.<br>
+          Alternative: "Spell WORLD backwards." (D-L-R-O-W)
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score4" id="4score0" value="0" ng-model="examCtrl.newExam.score4"> 0
@@ -94,7 +120,15 @@
               <input class="form-check-input" type="radio" name="score4" id="4score5" value="5" ng-model="examCtrl.newExam.score4"> 5
             </label>
           </div>
-          <label>"Earlier I told you the names of three things. Can you tell me what those were?"</label>
+          <label>5. "Earlier I told you the names of three things. Can you tell me what those were?"
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score5" id="5score0" value="0" ng-model="examCtrl.newExam.score5"> 0
@@ -109,7 +143,15 @@
               <input class="form-check-input" type="radio" name="score5" id="5score3" value="3" ng-model="examCtrl.newExam.score5"> 3
             </label>
           </div>
-          <label>Show the patient two simple objects, such as a wristwatch and a pencil, and ask the patient to name them.</label>
+          <label>6. Show the patient two simple objects, such as a wristwatch and a pencil, and ask the patient to name them.
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score6" id="6score0" value="0" ng-model="examCtrl.newExam.score6"> 0
@@ -121,7 +163,15 @@
               <input class="form-check-input" type="radio" name="score6" id="6score2" value="2" ng-model="examCtrl.newExam.score6"> 2
             </label>
           </div>
-          <label>"Repeat the phrase: 'No ifs, ands, or buts."</label>
+          <label>7. "Repeat the phrase: 'No ifs, ands, or buts."
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score7" id="7score0" value="0" ng-model="examCtrl.newExam.score7"> 0
@@ -130,7 +180,15 @@
               <input class="form-check-input" type="radio" name="score7" id="7score1" value="1" ng-model="examCtrl.newExam.score7"> 1
             </label>
           </div>
-          <label>"Take the paper in your right hand, fold it in half, and put it on the floor." (The examiner gives the patient a piece of blank paper.)</label>
+          <label>8. "Take the paper in your right hand, fold it in half, and put it on the floor." (The examiner gives the patient a piece of blank paper.)
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score8" id="8score0" value="0" ng-model="examCtrl.newExam.score8"> 0
@@ -145,7 +203,15 @@
               <input class="form-check-input" type="radio" name="score8" id="8score3" value="3" ng-model="examCtrl.newExam.score8"> 3
             </label>
           </div>
-          <label>"Please read this and do what it says." (Written instruction is "Close your eyes.")</label>
+          <label>9. "Please read this and do what it says." (Written instruction is "Close your eyes.")
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score9" id="9score0" value="0" ng-model="examCtrl.newExam.score9"> 0
@@ -154,7 +220,15 @@
               <input class="form-check-input" type="radio" name="score9" id="9score1" value="1" ng-model="examCtrl.newExam.score9"> 1
             </label>
           </div>
-          <label>"Make up and write a sentence about anything." (This sentence must contain a noun and a verb.)</label>
+          <label>10. "Make up and write a sentence about anything." (This sentence must contain a noun and a verb.)
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score10" id="10score0" value="0" ng-model="examCtrl.newExam.score10"> 0
@@ -163,7 +237,15 @@
               <input class="form-check-input" type="radio" name="score10" id="10score1" value="1" ng-model="examCtrl.newExam.score10"> 1
             </label>
           </div>
-          <label>"Please copy this picture." (The examiner gives the patient a blank piece of paper and asks him/her to draw the symbol below. All 10 angles must be present and two must intersect.)</label>
+          <label>11. "Please copy this picture." (The examiner gives the patient a blank piece of paper and asks him/her to draw the symbol below. All 10 angles must be present and two must intersect.)
+            <md-button id="tooltip" class="md-icon-button" aria-label="tip">
+              <md-tooltip md-direction="right">
+                Hello
+              </md-tooltip>
+              <md-icon md-svg-src="../images/question.svg"></md-icon>
+              </md-icon>
+            </md-button>
+          </label>
           <div class="form-group">
             <label class="form-check-inline">
               <input class="form-check-input" type="radio" name="score11" id="11score0" value="0" ng-model="examCtrl.newExam.score11"> 0
@@ -178,6 +260,5 @@
         </form>
       </div>
     </div>
-    <div class="row">Scoring</div>
   </div>
 
