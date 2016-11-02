@@ -17,24 +17,24 @@ function examController($location, $http, authentication, Flash) {
     vm.examsList = response.data;
     // console.log('exam list ', vm.examsList)
 
-    vm.scoreList = vm.examsList.map(function totalScore(exam){
+    vm.scoreList = vm.examsList.filter(function totalScore(exam){
       if(exam.user[0] === vm.currentUser._id){
+        return exam;
+      }
+    })
+    vm.scoreList2 = vm.scoreList.map(function totalScore(exam){
+      if(!undefined){
         return exam.totalScore;
       }
     })
-    vm.scoreList2 = vm.scoreList.filter(function totalScore(score){
-      if(!undefined){
-        return score;
-      }
-    })
-    vm.orientationList = vm.examsList.map(function orientation(exam){
+    vm.orientationList = vm.examsList.filter(function orientation(exam){
       if(exam.user[0] === vm.currentUser._id){
-        return (exam.score1 + exam.score2);
+        return exam;
       }
     })
-    vm.orientationList2 = vm.orientationList.filter(function orientation(score){
+    vm.orientationList2 = vm.orientationList.map(function orientation(exam){
       if(!undefined){
-        return score;
+        return (exam.score1 + exam.score2);
       }
     })
     vm.registrationList = vm.examsList.filter(function registration(exam){
@@ -43,20 +43,20 @@ function examController($location, $http, authentication, Flash) {
       }
     })
     // console.log(vm.registrationList)
-    vm.registrationList2 = vm.registrationList.map(function registration(score){
-      if(!undefined && score !== 0){
-        return score.score3;
+    vm.registrationList2 = vm.registrationList.map(function registration(exam){
+      if(!undefined){
+        return exam.score3;
       }
     })
     // console.log(vm.registrationList2)
-    vm.attenCalcList = vm.examsList.map(function attenCalc(exam){
+    vm.attenCalcList = vm.examsList.filter(function attenCalc(exam){
       if(exam.user[0] === vm.currentUser._id){
-        return exam.score4;
+        return exam;
       }
     })
-    vm.attenCalcList2 = vm.attenCalcList.filter(function attenCalc(score){
+    vm.attenCalcList2 = vm.attenCalcList.map(function attenCalc(exam){
       if(!undefined){
-        return score;
+        return exam.score4;
       }
     })
     vm.recallList = vm.examsList.filter(function recall(exam){
@@ -64,19 +64,19 @@ function examController($location, $http, authentication, Flash) {
         return exam;
       }
     })
-    vm.recallList2 = vm.recallList.map(function recall(score){
+    vm.recallList2 = vm.recallList.map(function recall(exam){
       if(!undefined){
-        return score.score5;
+        return exam.score5;
       }
     })
-    vm.langPraxisList = vm.examsList.map(function langPraxis(exam){
+    vm.langPraxisList = vm.examsList.filter(function langPraxis(exam){
       if(exam.user[0] === vm.currentUser._id){
-        return (exam.score6 + exam.score7 + exam.score8 + exam.score9 + exam.score10 + exam.score11);
+        return exam;
       }
     })
-    vm.langPraxisList2 = vm.langPraxisList.filter(function langPraxis(score){
+    vm.langPraxisList2 = vm.langPraxisList.map(function langPraxis(exam){
       if(!undefined){
-        return score;
+        return (exam.score6 + exam.score7 + exam.score8 + exam.score9 + exam.score10 + exam.score11);
       }
     })
     // console.log(vm.scoreList2);
