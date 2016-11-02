@@ -2,8 +2,7 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = 'mongodb://localhost/health';
 if (process.env.NODE_ENV === 'production') {
-  console.log('node_env')
-  dbURI = process.env.NODE_ENV;
+  dbURI = process.env.MONGODB_URI;
 }
 
 mongoose.connect(dbURI);
