@@ -7,8 +7,6 @@
       <p class="lead">Instructions: Ask the questions in the order listed. Score one point for each correct response within each question or activity.
       Click on the question mark for administration and scoring of the MMSE.
       </p>
-       <flash-message
-      ></flash-message>
         <form ng-submit="examCtrl.onSubmit()">
           <label>1. "What is the year? Season? Date? Day of the week? Month?"
             <span uib-dropdown on-toggle="toggled(open)">
@@ -195,7 +193,9 @@
           </md-radio-group>
           <hr>
           <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+        </form><br>
+         <flash-message
+      ></flash-message>
       </div>
     </div>
   </div>

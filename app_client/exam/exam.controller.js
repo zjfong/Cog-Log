@@ -2,8 +2,8 @@ angular
   .module('health')
   .controller('examController', examController);
 
-examController.$inject = ['$location', '$http', 'authentication'];
-function examController($location, $http, authentication) {
+examController.$inject = ['$location', '$http', 'authentication', 'Flash'];
+function examController($location, $http, authentication, Flash) {
   var vm = this;
   vm.data=[];
   vm.newExam = {};
@@ -119,12 +119,12 @@ function examController($location, $http, authentication) {
   };
 
   vm.errorAlert = function () {
-    var message = '<strong> Oops!</strong> An error occurred while submitting the form. Make sure all fields are filled out';
-    var id = Flash.create('danger', message, 3000, {class: 'custom-class', id: 'custom-id'}, true);
+    var message = 'An error occurred while submitting the form. Please make sure all fields are filled out';
+    var id = Flash.create('danger', message, 5000, {class: 'custom-class', id: 'custom-id'}, true);
   }
 
   vm.series = ['Total Score', 'Orientation', 'Registration', 'Attention and Calculation', 'Recall', 'Language and Praxis'];
-  vm.colors = [{fillColor:["#FF0000", "#00FF00", "#0000FF", "#00FFFF", "#FFFF00"]}];
+  vm.colors = [{fillColor:["#00FF00"]}];
   vm.lineOptions = {
     elements: {
       line: {
