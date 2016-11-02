@@ -37,16 +37,19 @@ function examController($location, $http, authentication) {
         return score;
       }
     })
-    vm.registrationList = vm.examsList.map(function registration(exam){
+    console.log(vm.examsList)
+    vm.registrationList = vm.examsList.filter(function registration(exam){
       if(exam.user[0] === vm.currentUser._id){
-        return exam.score3;
+        return exam;
       }
     })
-    vm.registrationList2 = vm.registrationList.filter(function registration(score){
-      if(!undefined){
-        return score;
+    console.log(vm.registrationList)
+    vm.registrationList2 = vm.registrationList.map(function registration(score){
+      if(!undefined && score !== 0){
+        return score.score3;
       }
     })
+    console.log(vm.registrationList2)
     vm.attenCalcList = vm.examsList.map(function attenCalc(exam){
       if(exam.user[0] === vm.currentUser._id){
         return exam.score4;

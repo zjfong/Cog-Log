@@ -35,7 +35,7 @@
               </div>
             </span>
           </label>
-          <md-radio-group ng-required="true" layout="row" ng-model="examCtrl.newExam.score2">
+          <md-radio-group layout="row" ng-model="examCtrl.newExam.score2" ng-required="!examCtrl.newExam.score2">
             <md-radio-button value="0" class="md-primary">0</md-radio-button>
             <md-radio-button value="1"> 1 </md-radio-button>
             <md-radio-button value="2"> 2 </md-radio-button>
