@@ -22,7 +22,7 @@ function examController($location, $http, authentication) {
         return exam.totalScore;
       }
     })
-    vm.scoreLists = vm.scoreList.filter(function totalScores(score){
+    vm.scoreList2 = vm.scoreList.filter(function totalScore(score){
       if(!undefined){
         return score;
       }
@@ -32,14 +32,58 @@ function examController($location, $http, authentication) {
         return (exam.score1 + exam.score2);
       }
     })
-    vm.orientationLists = vm.orientationList.filter(function orientation(score){
+    vm.orientationList2 = vm.orientationList.filter(function orientation(score){
       if(!undefined){
         return score;
       }
     })
-    console.log(vm.scoreLists)
-    console.log(vm.orientationLists)
-    vm.data.push(vm.scoreLists, vm.orientationLists);
+    console.log(vm.examsList)
+    vm.registrationList = vm.examsList.filter(function registration(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return exam;
+      }
+    })
+    console.log(vm.registrationList)
+    vm.registrationList2 = vm.registrationList.map(function registration(score){
+      if(!undefined && score !== 0){
+        return score.score3;
+      }
+    })
+    console.log(vm.registrationList2)
+    vm.attenCalcList = vm.examsList.map(function attenCalc(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return exam.score4;
+      }
+    })
+    vm.attenCalcList2 = vm.attenCalcList.filter(function attenCalc(score){
+      if(!undefined){
+        return score;
+      }
+    })
+    vm.recallList = vm.examsList.map(function recall(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return exam.score5;
+      }
+    })
+    vm.recallList2 = vm.recallList.filter(function recall(score){
+      if(!undefined){
+        return score;
+      }
+    })
+    vm.langPraxisList = vm.examsList.map(function langPraxis(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return (exam.score6 + exam.score7 + exam.score8 + exam.score9 + exam.score10 + exam.score11);
+      }
+    })
+    vm.langPraxisList2 = vm.langPraxisList.filter(function langPraxis(score){
+      if(!undefined){
+        return score;
+      }
+    })
+    // console.log(vm.scoreList2);
+    // console.log(vm.orientationList2);
+    // console.log(vm.registrationList2);
+    vm.data.push(vm.scoreList2, vm.orientationList2, vm.registrationList2, vm.attenCalcList2, vm.recallList2, vm.langPraxisList2);
 
     vm.label = vm.examsList.filter(function label(exam){
       if(exam.user[0] === vm.currentUser._id){
