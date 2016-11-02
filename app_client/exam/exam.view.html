@@ -35,7 +35,7 @@
               </div>
             </span>
           </label>
-          <md-radio-group layout="row" ng-model="examCtrl.newExam.score2" ng-required="!examCtrl.newExam.score2">
+          <md-radio-group layout="row" ng-model="examCtrl.newExam.score2" ng-required="true">
             <md-radio-button value="0" class="md-primary">0</md-radio-button>
             <md-radio-button value="1"> 1 </md-radio-button>
             <md-radio-button value="2"> 2 </md-radio-button>
@@ -193,7 +193,9 @@
           </md-radio-group>
           <hr>
           <button type="submit" class="btn btn-success">Submit</button>
-        </form>
+        </form><br>
+         <flash-message
+      ></flash-message>
       </div>
     </div>
   </div>
