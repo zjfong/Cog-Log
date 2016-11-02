@@ -3,7 +3,7 @@ var gracefulShutdown;
 var dbURI = 'mongodb://localhost/health';
 if (process.env.NODE_ENV === 'production') {
   console.log('node_env')
-  dbURI = "mongodb://zjfong:Mlab33@ds141697.mlab.com:41697/cog-log";
+  dbURI = "process.env.NODE_ENV";
 }
 
 mongoose.connect(dbURI);
