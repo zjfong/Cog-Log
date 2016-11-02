@@ -20,12 +20,18 @@ function loginController($location, authentication, Flash) {
     })
     .then(function(){
       $location.path('profile');
+      vm.successAlert();
     });
   };
 
   vm.errorAlert = function () {
     var message = '<strong> Oops!</strong> Incorrect email or password.';
-    var id = Flash.create('danger', message, 0, {class: 'custom-class', id: 'custom-id'}, true);
+    var id = Flash.create('danger', message, 3000, {class: 'custom-class', id: 'custom-id'}, true);
+  }
+
+  vm.successAlert = function () {
+    var message = 'Successfully logged in.';
+    var id = Flash.create('success', message, 3000, {class: 'custom-class', id: 'custom-id'}, true);
   }
 
 }

@@ -2,12 +2,14 @@
   <div class="container">
     <div id="navbar-main">
       <ul class="logo nav navbar-nav navbar-left">
-        <a class="navbar-brand" href="/">Health</a>
+        <a class="navbar-brand" href="/">Cog Log</a>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="navigationCtrl.isLoggedIn"><a href="register">Register</a></li>
         <li ng-hide="navigationCtrl.isLoggedIn"><a href="login">Log In</a></li>
         <li ng-show="navigationCtrl.isLoggedIn"><a href="profile">Profile</a></li>
+        <li ng-show="navigationCtrl.isLoggedIn"><a href="exam">New Exam</a></li>
+        <li ng-show="navigationCtrl.isLoggedIn"><a href="stats">Stats</a></li>
         <li ng-show="navigationCtrl.isLoggedIn"><a href="logout">Log Out</a></li>
       </ul>
     </div>

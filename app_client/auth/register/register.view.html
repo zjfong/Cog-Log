@@ -9,7 +9,7 @@
       <form ng-submit="registerCtrl.onSubmit()">
         <div class="form-group">
           <label for="name">Name</label>
-          <input required type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="registerCtrl.credentials.name">
+          <input ng-required="true" type="text" class="form-control" id="name" placeholder="Enter your name" ng-model="registerCtrl.credentials.name">
         </div>
         <div class="form-group">
           <label for="email">Email address</label>
