@@ -27,7 +27,7 @@ module.exports.newExam = function(req, res) {
   exam.save(function (err, exam){
     if(err){
       console.log('exam err', err);
-      res.status(500).send(err);
+      res.status(400).send(err);
     } else {
       res.json(exam);
     }
