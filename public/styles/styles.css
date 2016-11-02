@@ -1,6 +1,6 @@
 
 .jumbotron {
-  background-image: url(../images/brain2.jpg);
+  background-image: url(../images/brain.jpg);
   background-size: cover;
   width: 80%;
   height: 500px;
@@ -8,7 +8,7 @@
 }
 
 #jumboContent {
-  margin-top: 300px;
+  /*margin-top: 300px;*/
 }
 
 footer {
