@@ -37,19 +37,18 @@ function examController($location, $http, authentication) {
         return score;
       }
     })
-    console.log(vm.examsList)
     vm.registrationList = vm.examsList.filter(function registration(exam){
       if(exam.user[0] === vm.currentUser._id){
         return exam;
       }
     })
-    console.log(vm.registrationList)
+    // console.log(vm.registrationList)
     vm.registrationList2 = vm.registrationList.map(function registration(score){
       if(!undefined && score !== 0){
         return score.score3;
       }
     })
-    console.log(vm.registrationList2)
+    // console.log(vm.registrationList2)
     vm.attenCalcList = vm.examsList.map(function attenCalc(exam){
       if(exam.user[0] === vm.currentUser._id){
         return exam.score4;
@@ -60,14 +59,14 @@ function examController($location, $http, authentication) {
         return score;
       }
     })
-    vm.recallList = vm.examsList.map(function recall(exam){
+    vm.recallList = vm.examsList.filter(function recall(exam){
       if(exam.user[0] === vm.currentUser._id){
-        return exam.score5;
+        return exam;
       }
     })
-    vm.recallList2 = vm.recallList.filter(function recall(score){
+    vm.recallList2 = vm.recallList.map(function recall(score){
       if(!undefined){
-        return score;
+        return score.score5;
       }
     })
     vm.langPraxisList = vm.examsList.map(function langPraxis(exam){
@@ -115,10 +114,17 @@ function examController($location, $http, authentication) {
 
     }, function onError(error){
       console.log('POST error ', error);
+      vm.errorAlert();
     });
   };
 
+  vm.errorAlert = function () {
+    var message = '<strong> Oops!</strong> An error occurred while submitting the form. Make sure all fields are filled out';
+    var id = Flash.create('danger', message, 3000, {class: 'custom-class', id: 'custom-id'}, true);
+  }
+
   vm.series = ['Total Score', 'Orientation', 'Registration', 'Attention and Calculation', 'Recall', 'Language and Praxis'];
+  vm.colors = [{fillColor:["#FF0000", "#00FF00", "#0000FF", "#00FFFF", "#FFFF00"]}];
   vm.lineOptions = {
     elements: {
       line: {
