@@ -11,6 +11,9 @@ module.exports.register = function(req, res) {
   user.email = req.body.email;
   user.setPassword(req.body.password);
   user.save(function(err) {
+    if(err){
+      console.log(err)
+    }
     var token;
     token = user.generateJwt();
     res.status(200);
