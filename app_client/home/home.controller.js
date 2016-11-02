@@ -3,6 +3,6 @@ angular
   .controller('homeController', homeController);
 
 function homeController () {
-  console.log('Home controller is running');
+  // console.log('Home controller is running');
 }
 

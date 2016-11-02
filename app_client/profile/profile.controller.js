@@ -9,7 +9,7 @@ function profileController($location, attachedData) {
 
   attachedData.getProfile()
     .success(function(data) {
-      console.log(data);
+      // console.log(data);
       vm.user = data;
     })
     .error(function (e) {
