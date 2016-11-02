@@ -8,7 +8,7 @@ function examController($location, $http, authentication, Flash) {
   vm.data=[];
   vm.newExam = {};
   vm.currentUser = authentication.currentUser();
-  console.log(vm.currentUser);
+  // console.log(vm.currentUser);
 
   $http({
     method: 'GET',
@@ -119,7 +119,7 @@ function examController($location, $http, authentication, Flash) {
   };
 
   vm.errorAlert = function () {
-    var message = 'An error occurred while submitting the form. Please make sure all fields are filled out';
+    var message = 'An error occurred while submitting the form. Please make sure all fields are filled out.';
     var id = Flash.create('danger', message, 5000, {class: 'custom-class', id: 'custom-id'}, true);
   }
 
