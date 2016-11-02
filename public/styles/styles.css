@@ -12,6 +12,18 @@
 }
 */
 
+.jumbotron {
+  background-image: url(../images/brain2.jpg);
+  background-size: cover;
+  width: 80%;
+  height: 500px;
+  color: white;
+}
+
+#jumboContent {
+  margin-top: 300px;
+}
+
 footer {
   height: 50px;
 }
