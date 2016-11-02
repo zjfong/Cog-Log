@@ -12,11 +12,11 @@ module.exports.register = function(req, res) {
   user.setPassword(req.body.password);
   user.save(function(err) {
     if(err){
-      console.log(err)
+      return res.json({success: false, msg: 'failed to make'})
     }
     var token;
     token = user.generateJwt();
-    res.status(200);
+    // res.status(200);
     res.json({
       "token" : token
     });
