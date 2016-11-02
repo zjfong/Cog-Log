@@ -21,8 +21,23 @@ footer {
   margin: 0 auto;
 }
 
-/*.container {
-  float: center;
+.bottomBorder {
+  border-bottom: 1px solid black;
+}
+
+.scores {
+  font-size: 1.2em;
+  border: 1px solid black;
+  padding: 2%;
+}
+
+#interpret {
+  height: 250px;
+  width: auto;
+}
+
+/*#rightBorder {
+  border-right: 1px solid black;
 }*/
 
 .dropdown-menu {

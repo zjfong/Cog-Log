@@ -10,18 +10,19 @@
     chart-series="examCtrl.series" chart-options="examCtrl.lineOptions"></canvas>
   </div>
   <hr>
-
-  <div class="row">
-    <div class="col-md-6">
-
-
-      <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
-        <p>Date: {{exam.date | date : 'longdate' : 'PDT'}} Total Score: {{exam.totalScore}}</p>
-
-      </div>
-      <a class="btn btn-primary" href="exam" role="button">New Exam</a>
+    <div class="col-md-8">
+      <img id="interpret" src="../images/interpretation.png" alt="interpret">
     </div>
-  </div>
+
+    <div class="col-md-4 scores">
+      <div class="col-md-6 bottomBorder"><b>Date:</b></div>
+      <div class="col-md-6 bottomBorder"><b>Total Score:</b></div>
+      <div ng-repeat="exam in examCtrl.examsList | orderBy: '-date' | filter: examCtrl.currentUser._id">
+        <div class="col-md-6 bottomBorder">{{exam.date}} </div>
+        <div class="col-md-6 bottomBorder">{{exam.totalScore}}</div>
+      </div>
+    </div>
+
 
 
 

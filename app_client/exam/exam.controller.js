@@ -10,18 +10,12 @@ function examController($location, $http, authentication) {
   vm.currentUser = authentication.currentUser();
   console.log(vm.currentUser);
 
-  vm.date = new Date()
-  console.log(vm.date)
-  // $filter('vm.date')(vm.date, 'longdate', 'PDT')
-
-
-
   $http({
     method: 'GET',
     url: '/api/exams'
   }).then(function onSuccess (response){
     vm.examsList = response.data;
-    console.log('exam list ', vm.examsList)
+    // console.log('exam list ', vm.examsList)
 
     vm.scoreList = vm.examsList.map(function totalScore(exam){
       if(exam.user[0] === vm.currentUser._id){
@@ -34,7 +28,7 @@ function examController($location, $http, authentication) {
         return score;
       }
     })
-    console.log(vm.scoreLists)
+    // console.log(vm.scoreLists)
     vm.data.push(vm.scoreLists);
 
     vm.label = vm.examsList.filter(function label(exam){
@@ -47,7 +41,7 @@ function examController($location, $http, authentication) {
         return exam.date;
       }
     })
-    console.log(vm.labels)
+    // console.log(vm.labels)
 
   }, function onError (error){
     console.log('GET error ', error);
