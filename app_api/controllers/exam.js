@@ -23,13 +23,16 @@ module.exports.newExam = function(req, res) {
   exam.score11 = req.body.score11;
   exam.totalScore = exam.score1 + exam.score2 + exam.score3 + exam.score4 + exam.score5 + exam.score6 + exam.score7 + exam.score8 + exam.score9 + exam.score10 + exam.score11;
   exam.user = req.body.user;
-  console.log(exam)
+
   exam.save(function (err, exam){
     if(err){
       console.log('exam err', err);
+      res.status(500).send(err);
+    } else {
+      res.json(exam);
     }
   });
-  res.json(exam);
+
 
 }
 
