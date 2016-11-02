@@ -22,14 +22,24 @@ function examController($location, $http, authentication) {
         return exam.totalScore;
       }
     })
-
     vm.scoreLists = vm.scoreList.filter(function totalScores(score){
       if(!undefined){
         return score;
       }
     })
-    // console.log(vm.scoreLists)
-    vm.data.push(vm.scoreLists);
+    vm.orientationList = vm.examsList.map(function orientation(exam){
+      if(exam.user[0] === vm.currentUser._id){
+        return (exam.score1 + exam.score2);
+      }
+    })
+    vm.orientationLists = vm.orientationList.filter(function orientation(score){
+      if(!undefined){
+        return score;
+      }
+    })
+    console.log(vm.scoreLists)
+    console.log(vm.orientationLists)
+    vm.data.push(vm.scoreLists, vm.orientationLists);
 
     vm.label = vm.examsList.filter(function label(exam){
       if(exam.user[0] === vm.currentUser._id){
@@ -64,7 +74,7 @@ function examController($location, $http, authentication) {
     });
   };
 
-  vm.series = ['Score'];
+  vm.series = ['Total Score', 'Orientation', 'Registration', 'Attention and Calculation', 'Recall', 'Language and Praxis'];
   vm.lineOptions = {
     elements: {
       line: {
@@ -85,17 +95,6 @@ function examController($location, $http, authentication) {
       ]
     }
   };
-
-
-  // vm.cleanDate = function(){
-  //   vm.examsList.map(function examDate(exam){
-  //     var myDate = exam.date;
-  //     var newDate = dateFormat(myDate, "dddd, mmmm dS, yyyy, h:MM:ss TT");
-  //     // var newDate = (myDate.getMonth() + 1) + "/" + myDate.getDate() + "/" + myDate.getFullYear();
-  //     exam.date = newDate;
-  //   })
-  // }
-
 
 
 }
