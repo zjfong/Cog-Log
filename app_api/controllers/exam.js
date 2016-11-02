@@ -51,7 +51,19 @@ module.exports.findExams = function(req, res) {
         res.status(200).json(exams);
       });
   // }
-
-
 }
+
+module.exports.destroyExam = function(req, res) {
+  console.log('req param', req.params)
+  Exam.findOneAndRemove({ _id: req.params.examId }, function(err, exam){
+    if(err){
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      console.log(exam);
+      res.json(exam);
+    }
+  });
+}
+
 

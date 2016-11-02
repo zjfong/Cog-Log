@@ -20,6 +20,7 @@
       <div ng-repeat="exam in examCtrl.examsList | filter: examCtrl.currentUser._id">
         <div class="col-md-6 bottomBorder">{{exam.date}} </div>
         <div class="col-md-6 bottomBorder">{{exam.totalScore}}</div>
+        <button ng-click="examCtrl.deleteExam(exam)" type="button" class="btn btn-danger">Delete</button>
       </div>
     </div>
 
