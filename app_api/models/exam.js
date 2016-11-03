@@ -3,48 +3,37 @@ var mongoose = require( 'mongoose' );
 
 var examSchema = new mongoose.Schema({
   score1: {
-    type: Number,
-    required: true
+    type: Number
   },
   score2: {
-    type: Number,
-    required: true
+    type: Number
   },
   score3: {
-    type: Number,
-    required: true
+    type: Number
   },
   score4: {
-    type: Number,
-    required: true
+    type: Number
   },
   score5: {
-    type: Number,
-    required: true
+    type: Number
   },
   score6: {
-    type: Number,
-    required: true
+    type: Number
   },
   score7: {
-    type: Number,
-    required: true
+    type: Number
   },
   score8: {
-    type: Number,
-    required: true
+    type: Number
   },
   score9: {
-    type: Number,
-    required: true
+    type: Number
   },
   score10: {
-    type: Number,
-    required: true
+    type: Number
   },
   score11: {
-    type: Number,
-    required: true
+    type: Number
   },
   totalScore: {
     type: Number,
