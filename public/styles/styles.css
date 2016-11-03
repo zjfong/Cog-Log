@@ -36,6 +36,10 @@ footer {
   display: block;
 }
 
+.glyphicon {
+  float: right;
+}
+
 /*#rightBorder {
   border-right: 1px solid black;
 }*/
