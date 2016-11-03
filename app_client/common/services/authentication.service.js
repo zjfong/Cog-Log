@@ -43,7 +43,7 @@ function authentication ($http, $window) {
   };
 
   register = function(user) {
-    return $http.post('/api/register', user).success(function(data){
+    return $http.post('/api/signup', user).success(function(data){
       saveToken(data.token);
     });
   };

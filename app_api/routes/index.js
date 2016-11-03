@@ -14,7 +14,7 @@ var ctrlExam = require('../controllers/exam');
 router.get('/profile', auth, ctrlProfile.profileRead);
 
 // authentication
-router.post('/register', ctrlAuth.register);
+router.post('/signup', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 router.get('/exams', ctrlExam.findExams);

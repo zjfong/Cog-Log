@@ -16,7 +16,7 @@ function config ($routeProvider, $locationProvider) {
       controller: 'homeController',
       controllerAs: 'homeCtrl'
     })
-    .when('/register', {
+    .when('/signup', {
       templateUrl: '/auth/register/register.view.html',
       controller: 'registerController',
       controllerAs: 'registerCtrl'
