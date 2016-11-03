@@ -34,9 +34,9 @@ Set up process.env.JWT_SECRET
 
 Json Web Token Magic:  
 ```javascript
-jwt.sign(payload, secretOrPrivateKey, options, [callback])
+jwt.sign(payload, secretOrPrivateKey, options, [callback]g)
 ```
-- payload - an object with the JWT claims ie. email, gender, locale)
+- payload - an object with the JWT claims (ie. email, gender, locale)
 - options - ie. algorithm, expiresIn
 
 ```javascript
