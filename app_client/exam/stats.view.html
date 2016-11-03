@@ -1,49 +1,25 @@
 <navigation></navigation>
 
 <div class="container">
-
   <h1>Stats</h1>
-  <!-- <p class="lead">Stats for {{examCtrl.currentUser.name}}.</p> -->
 
   <div id="chartContainer">
     <canvas class="chart chart-line" height="20" width="80" chart-data="examCtrl.data" chart-labels="examCtrl.labels"
     chart-colors="examCtrl.colors" chart-series="examCtrl.series" chart-options="examCtrl.lineOptions"></canvas>
   </div>
   <hr>
-    <div class="col-md-8">
-      <img id="interpret" src="../images/interpretation.png" alt="interpret">
-    </div>
+  <div class="col-md-8">
+    <img id="interpret" src="../images/interpretation.png" alt="interpret">
+  </div>
 
-    <div class="col-md-4 scores">
-      <div class="col-md-6 bottomBorder"><b>Date:</b></div>
-      <div class="col-md-6 bottomBorder"><b>Total Score:</b></div>
-      <div ng-repeat="exam in examCtrl.examsList | filter: examCtrl.currentUser._id">
-        <div class="col-md-6 bottomBorder">{{exam.date}} </div>
-        <div class="col-md-6 bottomBorder">{{exam.totalScore}}</div>
+  <div class="col-md-4 scores">
+    <div class="col-md-6 bottomBorder"><b>Date:</b></div>
+    <div class="col-md-6 bottomBorder"><b>Total Score:</b></div>
+    <div ng-repeat="exam in examCtrl.examsList | filter: examCtrl.currentUser._id">
+      <div class="col-md-6 bottomBorder">{{exam.date}} </div>
+      <div class="col-md-6 bottomBorder">{{exam.totalScore}}
+        <span ng-click="examCtrl.deleteExam(exam)" class="glyphicon glyphicon-trash"></span>
       </div>
     </div>
-
-   <!--  <div class="col-md-12 scores">
-      <div class="col-md-1 bottomBorder"><b>Date:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Total Score:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Orientation:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Registration:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Attention and Calculation:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Recall:</b></div>
-      <div class="col-md-1 bottomBorder"><b>Language and Praxis:</b></div>
-      <div ng-repeat="exam in examCtrl.examsList | orderBy: '+date' | filter: examCtrl.currentUser._id">
-        <div class="col-md-1 bottomBorder">{{exam.date}} </div>
-        <div class="col-md-1 bottomBorder">{{exam.totalScore}}</div>
-        <div class="col-md-1 bottomBorder"> {{exam.score1 + exam.score2}}</div>
-        <div class="col-md-1 bottomBorder">{{exam.score3}}</div>
-        <div class="col-md-1 bottomBorder">{{exam.score4}}</div>
-        <div class="col-md-1 bottomBorder">{{exam.score5}}</div>
-        <div class="col-md-1 bottomBorder">{{exam.score6 + exam.score7 + exam.score8 + exam.score9 + exam.score10 + exam.score11}}</div>
-      </div>
-    </div> -->
-
-
-
-
-
+  </div>
 </div>

@@ -118,6 +118,21 @@ function examController($location, $http, authentication, Flash) {
     });
   };
 
+  vm.deleteExam = function (exam) {
+    console.log(exam)
+    if (confirm('Are you sure you want to delete this?')) {
+      $http({
+        method: 'DELETE',
+        url: '/api/exams/'+ exam._id
+      }).then(function onSuccess(response) {
+        var index = vm.examsList.indexOf(exam);
+        vm.examsList.splice(index,1)
+      }, function errorCallback(response) {
+        console.log('DELETE error ', response);
+      });
+    }
+  }
+
   vm.errorAlert = function () {
     var message = 'An error occurred while submitting the form. Please make sure all fields are filled out.';
     var id = Flash.create('danger', message, 5000, {class: 'custom-class', id: 'custom-id'}, true);

@@ -7,9 +7,6 @@ module.exports.newExam = function(req, res) {
 
   var exam = new Exam();
   exam.date = new Date().toDateString().slice(4, 15);
-
-
-
   exam.score1 = req.body.score1;
   exam.score2 = req.body.score2;
   exam.score3 = req.body.score3;
@@ -37,21 +34,24 @@ module.exports.newExam = function(req, res) {
 }
 
 module.exports.findExams = function(req, res) {
-  console.log(req.body);
-  console.log(res.body);
-  // if () {
-  //   res.status(401).json({
-  //     "message" : "UnauthorizedError: private profile"
-  //   });
-  // } else {
-    Exam
-      .find({})
-      // .where('user').gte()
-      .exec(function(err, exams) {
-        res.status(200).json(exams);
-      });
-  // }
-
-
+  Exam
+    .find({})
+    .exec(function(err, exams) {
+      res.status(200).json(exams);
+    });
 }
+
+module.exports.destroyExam = function(req, res) {
+  console.log('req param', req.params)
+  Exam.findOneAndRemove({ _id: req.params.examId }, function(err, exam){
+    if(err){
+      console.log(err);
+      res.status(404).send(err);
+    } else {
+      console.log(exam);
+      res.json(exam);
+    }
+  });
+}
+
 
