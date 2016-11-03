@@ -53,8 +53,9 @@ var examSchema = new mongoose.Schema({
   date: String,
   user:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
-  }],
+    ref: 'User',
+    required: true
+  }]
 });
 
 var Exam = mongoose.model('Exam', examSchema);
