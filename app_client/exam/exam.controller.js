@@ -110,7 +110,7 @@ function examController($location, $http, authentication, Flash) {
       data: vm.newExam
     }).then(function onSuccess(response){
       console.log(response);
-      $location.path('stats');
+      $location.path('score');
 
     }, function onError(error){
       console.log('POST error ', error);

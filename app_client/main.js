@@ -11,6 +11,11 @@ function config ($routeProvider, $locationProvider) {
       controller: 'homeController',
       controllerAs: 'homeCtrl'
     })
+    .when('/about', {
+      templateUrl: '/home/about.view.html',
+      controller: 'homeController',
+      controllerAs: 'homeCtrl'
+    })
     .when('/register', {
       templateUrl: '/auth/register/register.view.html',
       controller: 'registerController',
@@ -36,8 +41,8 @@ function config ($routeProvider, $locationProvider) {
       controller: 'examController',
       controllerAs: 'examCtrl'
     })
-    .when('/stats', {
-      templateUrl: '/exam/stats.view.html',
+    .when('/score', {
+      templateUrl: '/exam/score.view.html',
       controller: 'examController',
       controllerAs: 'examCtrl'
     })
@@ -54,7 +59,7 @@ function run($rootScope, $location, authentication) {
     if ($location.path() === '/profile' && !authentication.isLoggedIn()) {
       $location.path('/login');
     }
-    if ($location.path() === '/stats' && !authentication.isLoggedIn()) {
+    if ($location.path() === '/score' && !authentication.isLoggedIn()) {
       $location.path('/login');
     }
     if ($location.path() === '/exam' && !authentication.isLoggedIn()) {
