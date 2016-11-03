@@ -33,10 +33,11 @@ Set up process.env.JWT_SECRET
 ## Code Examples
 
 Json Web Token Magic:  
+```javascript
+jwt.sign()
 ```
-jwt.sign
-```
-- takes payload (an object with the JWT claims ie. email, gender, locale) and secret key.
+- payload - an object with the JWT claims ie. email, gender, locale)
+- options - ie. algorithm, expiresIn
 
 ```javascript
 userSchema.methods.generateJwt = function() {
