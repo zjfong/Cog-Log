@@ -37,8 +37,7 @@ module.exports.newExam = function(req, res) {
 }
 
 module.exports.findExams = function(req, res) {
-  console.log(req.body);
-  console.log(res.body);
+
   // if () {
   //   res.status(401).json({
   //     "message" : "UnauthorizedError: private profile"
