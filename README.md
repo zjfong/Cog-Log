@@ -2,6 +2,8 @@
 
 ![Cog Log Splash Page](http://i.imgur.com/K4vDvNv.png)
 
+[Wireframes and User Stories](https://github.com/zjfong/project3/blob/master/README2.md)
+
 ## Objective
 
 Cog Log helps doctors and caretakers administer the Mini-Mental State Exam (MMSE) and keep track of its scores. The MMSE has been the most widely used cognitive test for dementia in US clinical practice.  
@@ -29,6 +31,7 @@ GitHub Repository: https://github.com/zjfong/project3
 npm install
 ```
 Set up process.env.JWT_SECRET
+
 
 ## Code Examples
 
